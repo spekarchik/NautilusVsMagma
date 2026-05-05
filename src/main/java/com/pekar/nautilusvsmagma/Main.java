@@ -23,7 +23,7 @@ public class Main
         NeoForge.EVENT_BUS.register(this);
         EventRegistry.registerEvents();
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
