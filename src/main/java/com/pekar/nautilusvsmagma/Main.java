@@ -15,9 +15,7 @@ import org.slf4j.Logger;
 @Mod(Main.MODID)
 public class Main
 {
-    // Define mod id in a common place for everything to reference
     public static final String MODID = "nautilusvsmagma";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Main(IEventBus modEventBus, ModContainer modContainer)
@@ -33,6 +31,5 @@ public class Main
     public void onServerStarting(ServerStartingEvent event)
     {
         // Do something when the server starts
-//        LOGGER.info("HELLO from server starting");
     }
 }
