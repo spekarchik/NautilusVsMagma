@@ -16,7 +16,7 @@ Armored nautiluses can still be damaged by magma blocks, which may be unexpected
   - Diamond
   - Netherite  
 
-By default, only *Netherite* armor grants protection.
+By default, protection is granted by *Golden*, *Diamond*, and *Netherite* armor.
 
 ---
 

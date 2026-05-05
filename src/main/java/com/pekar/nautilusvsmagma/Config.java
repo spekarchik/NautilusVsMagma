@@ -29,10 +29,10 @@ public class Config
                 .define("iron", false);
         GOLDEN_NAUTILUS_ARMOR_PROTECTS_FROM_MAGMA = BUILDER
                 .comment("If true, Golden Nautilus Armor grants immunity to magma (hot floor) damage.")
-                .define("golden", false);
+                .define("golden", true);
         DIAMOND_NAUTILUS_ARMOR_PROTECTS_FROM_MAGMA = BUILDER
                 .comment("If true, Diamond Nautilus Armor grants immunity to magma (hot floor) damage.")
-                .define("diamond", false);
+                .define("diamond", true);
         NETHERITE_NAUTILUS_ARMOR_PROTECTS_FROM_MAGMA = BUILDER
                 .comment("If true, Netherite Nautilus Armor grants immunity to magma (hot floor) damage.")
                 .define("netherite", true);
