@@ -24,8 +24,8 @@ By default, protection is granted by *Golden*, *Diamond*, and *Netherite* armor.
 
 Customize magma protection behavior per armor tier:
 
-- Enable or disable immunity for each armor type  
-- Keep vanilla behavior or expand protection to other tiers  
+- Enable or disable immunity for each armor type
+- Keep default behavior or expand protection to other tiers
 
 *The configuration file is generated automatically after launching the game and can be found in the standard mod config directory.*
 
