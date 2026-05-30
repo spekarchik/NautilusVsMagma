@@ -5,42 +5,61 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Deque;
 import java.util.List;
-import java.util.Properties;
-import java.util.ArrayDeque;
 
 public class ModConfigSpec
 {
-    private final List<Definition<?>> definitions;
+    private final List<Entry> entries;
 
-    private ModConfigSpec(List<Definition<?>> definitions)
+    private ModConfigSpec(List<Entry> entries)
     {
-        this.definitions = definitions;
+        this.entries = entries;
     }
 
     public List<Definition<?>> getDefinitions()
     {
-        return definitions;
+        var definitions = new ArrayList<Definition<?>>();
+        for (var entry : entries)
+        {
+            if (entry instanceof DefinitionEntry definitionEntry)
+            {
+                definitions.add(definitionEntry.definition());
+            }
+        }
+
+        return List.copyOf(definitions);
     }
 
     public void load(Path path) throws IOException
     {
-        Properties properties = new Properties();
-
         if (Files.exists(path))
         {
-            try (var reader = Files.newBufferedReader(path))
+            for (var line : Files.readAllLines(path))
             {
-                properties.load(reader);
+                var trimmed = line.trim();
+                if (trimmed.isEmpty() || trimmed.startsWith("#") || trimmed.startsWith("["))
+                {
+                    continue;
+                }
+
+                int separator = trimmed.indexOf('=');
+                if (separator < 0)
+                {
+                    continue;
+                }
+
+                setValue(trimmed.substring(0, separator).trim(), trimmed.substring(separator + 1).trim());
             }
         }
 
-        for (var definition : definitions)
-        {
-            String value = properties.getProperty(definition.name);
+        save(path);
+    }
 
-            if (value == null)
+    private void setValue(String name, String value)
+    {
+        for (var definition : getDefinitions())
+        {
+            if (!definition.name.equals(name))
             {
                 continue;
             }
@@ -53,9 +72,9 @@ public class ModConfigSpec
             {
                 intValue.setValue(Integer.parseInt(value));
             }
-        }
 
-        save(path);
+            return;
+        }
     }
 
     public void save(Path path) throws IOException
@@ -67,16 +86,23 @@ public class ModConfigSpec
 
         try (var writer = Files.newBufferedWriter(path))
         {
-            for (var definition : definitions)
+            for (var entry : entries)
             {
+                if (entry instanceof SectionEntry section)
+                {
+                    writer.write("[" + section.name() + "]");
+                    writer.newLine();
+                    continue;
+                }
+
+                var definition = ((DefinitionEntry) entry).definition();
                 for (var comment : definition.getComment())
                 {
-                    writer.write("# " + comment);
+                    writer.write("\t#" + comment);
                     writer.newLine();
                 }
 
-                writer.write(definition.name + "=" + definition.getValue());
-                writer.newLine();
+                writer.write("\t" + definition.name + " = " + definition.getValue());
                 writer.newLine();
             }
         }
@@ -143,8 +169,7 @@ public class ModConfigSpec
     public static class Builder
     {
         private final List<String> comments = new ArrayList<>();
-        private final List<Definition<?>> definitions = new ArrayList<>();
-        private final Deque<String> path = new ArrayDeque<>();
+        private final List<Entry> entries = new ArrayList<>();
 
         public Builder comment(String... textLines)
         {
@@ -154,62 +179,46 @@ public class ModConfigSpec
 
         public Builder push(String name)
         {
-            path.addLast(name);
+            entries.add(new SectionEntry(name));
             return this;
         }
 
         public Builder pop()
         {
-            if (path.isEmpty())
-            {
-                throw new IllegalStateException("Cannot pop an empty config path");
-            }
-
-            path.removeLast();
             return this;
         }
 
         public BooleanValue define(String name, boolean defaultValue)
         {
-            var definition = BooleanValue.define(fullName(name), defaultValue);
+            var definition = BooleanValue.define(name, defaultValue);
             for (var comment : comments)
             {
                 definition.addComment(comment);
             }
 
             comments.clear();
-            definitions.add(definition);
+            entries.add(new DefinitionEntry(definition));
 
             return definition;
         }
 
         public IntValue defineInRange(String name, int defaultValue, int min, int max)
         {
-            var definition = IntValue.define(fullName(name), defaultValue, min, max);
+            var definition = IntValue.define(name, defaultValue, min, max);
             for (var comment : comments)
             {
                 definition.addComment(comment);
             }
 
             comments.clear();
-            definitions.add(definition);
+            entries.add(new DefinitionEntry(definition));
 
             return definition;
         }
 
-        private String fullName(String name)
-        {
-            if (path.isEmpty())
-            {
-                return name;
-            }
-
-            return String.join(".", path) + "." + name;
-        }
-
         public ModConfigSpec build()
         {
-            return new ModConfigSpec(List.copyOf(definitions));
+            return new ModConfigSpec(List.copyOf(entries));
         }
     }
 }
