@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class AnimalManager implements IAnimalManager, IEventHandler
+public class AnimalManager implements IAnimalManager
 {
     private final Map<UUID, IAnimal> animals = new ConcurrentHashMap<>();
     private static final IAnimalManager instance;

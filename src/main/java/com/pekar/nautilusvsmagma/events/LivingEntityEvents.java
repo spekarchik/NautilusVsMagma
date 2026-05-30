@@ -10,7 +10,7 @@ import net.minecraft.world.entity.animal.nautilus.AbstractNautilus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
-public class LivingEntityEvents implements IEventHandler
+public class LivingEntityEvents
 {
     @SubscribeEvent
     public void onLivingDamage(LivingIncomingDamageEvent event)

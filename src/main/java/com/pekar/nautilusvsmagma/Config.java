@@ -2,7 +2,7 @@ package com.pekar.nautilusvsmagma;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import com.pekar.nautilusvsmagma.config.ModConfigSpec;
 
 public class Config
 {
