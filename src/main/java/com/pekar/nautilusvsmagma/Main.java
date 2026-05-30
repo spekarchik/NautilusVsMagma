@@ -18,7 +18,7 @@ public class Main implements ModInitializer
     {
         var configPath = FabricLoader.getInstance()
                 .getConfigDir()
-                .resolve("enchantonce-common.toml");
+                .resolve("nautilusvsmagma-server.toml");
 
         try
         {
