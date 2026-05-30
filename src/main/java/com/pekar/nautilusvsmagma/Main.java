@@ -1,6 +1,7 @@
 package com.pekar.nautilusvsmagma;
 
 import com.mojang.logging.LogUtils;
+import com.pekar.nautilusvsmagma.events.LivingEntityEvents;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
@@ -15,10 +16,6 @@ public class Main implements ModInitializer
     @Override
     public void onInitialize()
     {
-        // This code runs as soon as Minecraft is in a mod-load-ready state.
-        // However, some things (like resources) may still be uninitialized.
-        // Proceed with mild caution.
-
         var configPath = FabricLoader.getInstance()
                 .getConfigDir()
                 .resolve("enchantonce-common.toml");
@@ -31,5 +28,7 @@ public class Main implements ModInitializer
         {
             throw new RuntimeException("Failed to load config", e);
         }
+
+        LivingEntityEvents.register();
     }
 }
