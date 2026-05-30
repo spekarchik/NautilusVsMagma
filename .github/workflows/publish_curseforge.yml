@@ -19,7 +19,7 @@ jobs:
     env:
       CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
       CF_PROJECT_ID: 1534219
-      COMMON_TAGS: "Server|Client"
+      COMMON_TAGS: "Server"
 
     steps:
       - name: Publish gate
