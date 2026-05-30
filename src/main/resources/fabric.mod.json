@@ -19,6 +19,9 @@
       "com.pekar.nautilusvsmagma.Main"
     ]
   },
+  "mixins": [
+    "nautilusvsmagma.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "minecraft": "~${minecraft_version}",

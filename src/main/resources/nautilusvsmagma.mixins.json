@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.pekar.nautilusvsmagma.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ServerLevelEntityCallbacksMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

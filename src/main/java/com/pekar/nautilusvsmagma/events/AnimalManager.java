@@ -3,8 +3,6 @@ package com.pekar.nautilusvsmagma.events;
 import com.pekar.nautilusvsmagma.events.animal.IAnimal;
 import com.pekar.nautilusvsmagma.events.animal.ModAnimal;
 import net.minecraft.world.entity.animal.Animal;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 
 import java.util.Map;
 import java.util.UUID;
@@ -38,12 +36,11 @@ public class AnimalManager implements IAnimalManager
         animals.put(animal.getEntity().getUUID(), animal);
     }
 
-    @SubscribeEvent
-    public void onEntityLeaveLevelEvent(EntityLeaveLevelEvent event)
+    public static void onEntityLeaveLevelEvent(EntityLeaveLevelEvent event)
     {
         if (event.getLevel().isClientSide()) return;
 
         var entity = event.getEntity();
-        animals.remove(entity.getUUID());
+        ((AnimalManager) instance).animals.remove(entity.getUUID());
     }
 }
