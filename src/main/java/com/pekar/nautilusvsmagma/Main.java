@@ -2,34 +2,17 @@ package com.pekar.nautilusvsmagma;
 
 import com.mojang.logging.LogUtils;
 import com.pekar.nautilusvsmagma.events.EventRegistry;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(Main.MODID)
-public class Main
+public class Main implements ModInitializer
 {
     public static final String MODID = "nautilusvsmagma";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Main(IEventBus modEventBus, ModContainer modContainer)
+    @Override
+    public void onInitialize()
     {
-        NeoForge.EVENT_BUS.register(this);
         EventRegistry.registerEvents();
-
-        modContainer.registerConfig(ModConfig.Type.SERVER, Config.SPEC);
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
-        // Do something when the server starts
     }
 }
