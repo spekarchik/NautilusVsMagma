@@ -36,17 +36,18 @@ Customize magma protection behavior per armor tier:
 
 ## ✅ Features
 
-- 🧠 **NeoForge-friendly** – built for Minecraft 1.21.11+  
+- 🧠 **NeoForge & Fabric support** – built for Minecraft 1.21.11+
 - 🎮 **Client/server compatible** – works in singleplayer and multiplayer, no client-side installation required
-- ⚙️ **Configurable behavior** – adjust protection per armor tier  
-- 🎨 **Lightweight & focused** – changes only magma interaction  
+- ⚙️ **Configurable behavior** – adjust protection per armor tier
+- 🎨 **Lightweight & focused** – changes only magma interaction
 
 ---
 
 # 🛠️ Installation and Technical Information
 
 ## Installation
-- Make sure you have any of the supported **Minecraft** versions with **NeoForge** installed.  
+- Make sure you have one of the supported **Minecraft** versions with **NeoForge** or **Fabric** installed.
+- **Fabric** version requires **Fabric API** to be installed as well.
 - Download the mod `.jar` file.  
 - Place it into your `mods` folder.  
 - Launch the game.
