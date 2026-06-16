@@ -1,3 +1,3 @@
 ## 📦 Version 1.0.0
 
-- Initial publishing
+- Now supports Minecraft 26.2
