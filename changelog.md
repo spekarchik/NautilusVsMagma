@@ -1,3 +1,9 @@
+## 📦 Version 1.0.1
+
+### 📝 Improvements
+- Lowered the minimum required Fabric Loader version.
+
+
 ## 📦 Version 1.0.0
 
 - Initial publishing

@@ -8,11 +8,11 @@
     "${mod_authors}"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/nautilus-vs-magma",
+    "homepage": "${home_page}",
     "sources": "https://github.com/spekarchik/NautilusVsMagma"
   },
   "license": "${mod_license}",
-  "icon": "logo.png",
+  "icon": "${logo}",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -23,8 +23,8 @@
     "nautilusvsmagma.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "minecraft": ">=26.1 <=26.1.2",
+    "fabricloader": ">=${min_loader_version}",
+    "minecraft": "${minecraft_version_range}",
     "java": ">=25",
     "fabric-api": "*"
   }
