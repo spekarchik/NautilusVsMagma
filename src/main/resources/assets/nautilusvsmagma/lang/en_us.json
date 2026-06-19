@@ -2,5 +2,11 @@
   "language": "English",
   "language.region": "United States",
   "language.code": "en_us",
-  "author": "Sergey Pekarchik"
+  "author": "Sergey Pekarchik",
+  "nautilusvsmagma.configuration.nautilusArmorImmunity": "Nautilus Armor Immunity",
+  "nautilusvsmagma.configuration.copper": "Copper Nautilus Armor",
+  "nautilusvsmagma.configuration.iron": "Iron Nautilus Armor",
+  "nautilusvsmagma.configuration.golden": "Golden Nautilus Armor",
+  "nautilusvsmagma.configuration.diamond": "Diamond Nautilus Armor",
+  "nautilusvsmagma.configuration.netherite": "Netherite Nautilus Armor"
 }
