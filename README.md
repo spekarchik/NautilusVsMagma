@@ -27,10 +27,20 @@ Customize magma protection behavior per armor tier:
 - Enable or disable immunity for each armor type
 - Keep default behavior or expand protection to other tiers
 
+![Configuration](https://github.com/spekarchik/NautilusVsMagma/blob/main/docs/images/Config.png)
+
+### 📁 Config Location
+
 *The configuration file is generated automatically after launching the game and can be found in the standard mod config directory.*
 
 *By default, it is located at:*  
 `config/nautilusvsmagma-server.toml`
+
+Starting from **Nautilus vs Magma 1.0.1 for NeoForge**, configuration options can also be changed through the in-game config screen.
+
+From the main menu, navigate to *Mods → Nautilus vs Magma → Config* to access the configuration options.
+
+![NeoForge Config Screen](https://github.com/spekarchik/NautilusVsMagma/blob/main/docs/images/ConfigNeoUI.png)
 
 ---
 
@@ -53,6 +63,6 @@ Customize magma protection behavior per armor tier:
 - Launch the game.
 
 ## Technical Details
-- **Supported Minecraft versions:** 1.21.11, 26.1+
+- **Supported Minecraft versions:** 1.21.11, 26.1-26.2
 
 ---
