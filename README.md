@@ -66,3 +66,12 @@ From the main menu, navigate to *Mods → Nautilus vs Magma → Config* to acces
 - **Supported Minecraft versions:** 1.21.11, 26.1-26.2
 
 ---
+
+## ☕ Support Development
+
+If you enjoy the mod and would like to support future updates and new features, you can support me here:  
+[Buy me a coffee on Ko-fi!](https://ko-fi.com/sergeypekarchik)
+
+Your support means a lot and helps me dedicate more time to creating new content and improving the mod! ❤️
+
+---
