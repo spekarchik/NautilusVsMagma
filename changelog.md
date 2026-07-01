@@ -1,5 +1,10 @@
 ## 📦 Version 1.0.1
 
+- Promoted to **Release**.
+
+
+## 📦 Version 1.0.1-beta
+
 ### 📝 Improvements
 - Lowered the minimum required Fabric Loader version.
 
