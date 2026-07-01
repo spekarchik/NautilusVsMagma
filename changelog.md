@@ -1,5 +1,11 @@
 ## 📦 Version 1.0.1
 
+- Corrected the minimum required *Fabric Loader* version for MC 26.2.
+- Promoted to **Release**.
+
+
+## 📦 Version 1.0.1-beta
+
 - Now supports Minecraft 26.2
 
 ### 📝 Improvements
